@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+</head>
+<body>
+    <button id="login">login</button>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function() {
+            $("#login").on("click",function(){
+                var ajaxConfig = {
+                    url: "/qg/token/login",
+                    type: "POST",
+                    contentType: 'application/json;charset=utf-8',   //发送给服务器的数据格式，json
+                    data: null,   //带给服务器的数据
+                    // timeout: 15000, //超时时间
+                    dataType: 'json',  //返回数据的格式
+                    async: true,
+                    cache: false,
+                };
+                $.ajax(ajaxConfig).done(function(data){
+                    window.location.href="/index.html";
+                })
+
+            })
+        })
+    </script>
+</body>
+</html>
